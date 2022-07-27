@@ -154,7 +154,7 @@ function join(array, value) {
     if(array.length -1 == i) {
       string += array[i]
     } else if (array.length > i) {
-      string += array[i] + value
+      string += array[i] + value 
     }
 
   }
