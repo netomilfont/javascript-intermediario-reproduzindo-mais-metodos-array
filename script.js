@@ -9,14 +9,18 @@ function callbackForEach(element) {
 }
 
 function forEach(array, callback) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++) {
+
+    callback(array[i])
+
+  }
 }
 
-// console.log(forEach(arrayForEach, callbackForEach));
-// console.log(arrayVazio);
+console.log(forEach(arrayForEach, callbackForEach));
+console.log(arrayVazio);
+console.log("---------------------------------")
 
 //Método Find --------
-
 const arrayFind = [12, true, "alfafa", 4, 5]; // array para iteração do método
 
 //nossa primeira callback testa se o elemento é maior que 2 e menor que 12
@@ -34,10 +38,19 @@ function callbackFindTwo(element) {
 }
 
 function find(array, callback) {
-  //sua lógica aqui
+  
+  for(let i = 0; i < array.length; i++) {
+
+    if(callback(array[i]) == true) {
+      return array[i]
+    } else if ( callback(array[i] == false)){
+      return undefined
+    }
+  }
 }
-// console.log(find(arrayFind, callbackFind));
-// console.log(find(arrayFind, callbackFindTwo));
+console.log(find(arrayFind, callbackFind));
+console.log(find(arrayFind, callbackFindTwo));
+console.log("---------------------------------")
 
 //Método IndexOf --------
 
@@ -54,10 +67,21 @@ function callbackIndexOfTwo(element) {
 }
 
 function indexOf(array, callback) {
-  //sua lógica aqui
+  
+  for(let i = 0; i < array.length; i++) {
+
+    if(callback(array[i]) == true) {
+      return i
+    } 
+    
+  }
+
+  return -1
 }
-// console.log(indexOf(arrayIndexOf, callbackIndexOf));
-// console.log(indexOf(arrayIndexOf, callbackIndexOfTwo));
+console.log(indexOf(arrayIndexOf, callbackIndexOf));
+console.log(indexOf(arrayIndexOf, callbackIndexOfTwo));
+console.log("---------------------------------")
+
 
 //Método Includes --------
 
@@ -74,11 +98,20 @@ function callbackIncludesString(element) {
 }
 
 function includes(array, callback) {
-  //sua lógica aqui
+  for(let i = 0; i < array.length; i++) {
+
+    if(callback(array[i]) == true) {
+
+      return true
+    }
+  }
+
+  return false
 }
 
-// console.log(includes(arrayIncludes, callbackIncludesArray));
-// console.log(includes(arrayIncludes, callbackIncludesString));
+console.log(includes(arrayIncludes, callbackIncludesArray));
+console.log(includes(arrayIncludes, callbackIncludesString));
+console.log("---------------------------------")
 
 //Método some --------
 const arrySome = [12, 82, 563, 414, null]; // array para iteração do método
@@ -93,20 +126,42 @@ const callbackSome2 = (element) => {
 };
 
 function some(array, callback) {
-  //sua lógica aqui
+  
+  for(let i = 0; i < array.length; i++) {
+
+    if(callback(array[i]) == true) {
+
+      return true
+    }
+  }
+
+  return false
 }
 
-// console.log(some(arrySome, callbackSome));
-// console.log(some(arrySome, callbackSome2));
+console.log(some(arrySome, callbackSome));
+console.log(some(arrySome, callbackSome2));
+console.log("---------------------------------")
+
 
 //Método Join --------
 
 const arrayJoin = ["Fogo", "no", "Parquinho"]; // array para iteração do método
 
 function join(array, value) {
-  //sua lógica aqui
+  let string = ''
+  for(let i = 0; i < array.length; i++) {
+
+    if(array.length -1 == i) {
+      string += array[i]
+    } else if (array.length > i) {
+      string += array[i] + value
+    }
+
+  }
+
+  return string
 }
 
-// console.log(join(arrayJoin, " "));
-// console.log(join(arrayJoin, ""));
-// console.log(join(arrayJoin, "-"));
+console.log(join(arrayJoin, " "));
+console.log(join(arrayJoin, ""));
+console.log(join(arrayJoin, "-"));
